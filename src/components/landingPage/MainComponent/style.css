@@ -156,16 +156,14 @@
  
     .iphone {
         position: absolute;
-        left: 50%;  /* Center the iPhone horizontally */
-        transform: translateX(-50%);
+        left: calc(50% - 175px); /* Half of 350px */
         width: 350px;
     }
-    
+
     .gradient {
         position: absolute;
         top: 5rem;
-        left: 50%;  /* Center the gradient horizontally */
-        transform: translateX(-50%);
+        left: calc(50% - 150px); /* Half of 300px */
         width: 300px;
     }
 }

@@ -36,7 +36,10 @@ function MainComponent() {
 
             </div>
             <div className='phone-container'>
-                <motion.img src={iphone} className='iphone' initial={{y: -10}} animate={{y:0}} transition={{type: "smooth", repeatType:"mirror", duration: 2, repeat: Infinity,}}/>
+
+                <motion.img src={iphone} className='iphone' initial={{ y: -10 }} animate={{ y: 0 }} transition={{ type: "smooth", repeatType: "mirror", duration: 2, repeat: Infinity, }} />
+
+
                 <img src={gradient} className='gradient' />
             </div>
         </div>
