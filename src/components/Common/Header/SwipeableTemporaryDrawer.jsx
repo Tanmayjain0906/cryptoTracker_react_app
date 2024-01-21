@@ -2,6 +2,7 @@ import { useState } from 'react';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Button from '@mui/material/Button';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
+import { NavLink } from 'react-router-dom';
 
 
 export default function SwipeableTemporaryDrawer() {
@@ -17,18 +18,18 @@ export default function SwipeableTemporaryDrawer() {
                 onOpen={() => setOpen(true)}
             >
                 <div className='hambar'>
-                    <a href='/'>
+                    <NavLink to='/'>
                         <p className="link">Home</p>
-                    </a>
-                    <a href='/'>
+                    </NavLink>
+                    <NavLink to='/compare'>
                         <p className="link">Compare</p>
-                    </a>
-                    <a href='/'>
+                    </NavLink>
+                    <NavLink to='/wishlist'>
                         <p className="link">Wishlist</p>
-                    </a>
-                    <a href='/'>
+                    </NavLink>
+                    <NavLink to='/dashboard'>
                         <p className="link">Dashboard</p>
-                    </a>
+                    </NavLink>
                 </div>
             </SwipeableDrawer>
 

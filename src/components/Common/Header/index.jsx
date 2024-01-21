@@ -1,6 +1,7 @@
 import React from 'react'
 import "./style.css"
 import SwipeableTemporaryDrawer from './SwipeableTemporaryDrawer';
+import { NavLink } from 'react-router-dom';
 import Button from '../Button';
 
 function Header() {
@@ -8,22 +9,22 @@ function Header() {
     <div className='navbar'>
       <h1>CryptoTracker<span style={{ color: "var(--blue)" }}>.</span></h1>
       <div className="links">
-        <a href='/'>
+        <NavLink to='/'>
           <p className="link">Home</p>
-        </a>
-        <a href='/'>
+        </NavLink>
+        <NavLink to='/compare'>
           <p className="link">Compare</p>
-        </a>
-        <a href='/'>
+        </NavLink>
+        <NavLink to='/wishlist'>
           <p className="link">Wishlist</p>
-        </a>
-        <a href='#'>
+        </NavLink>
+        <NavLink to='/dashboard'>
           <Button text="Dashboard" onclick={() => console.log("clicked")} />
-        </a>
+        </NavLink>
       </div>
-      
-        <SwipeableTemporaryDrawer />
-      
+
+      <SwipeableTemporaryDrawer />
+
     </div>
   )
 }
