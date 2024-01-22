@@ -5,7 +5,9 @@ import "./style.css"
 import Tooltip from '@mui/material/Tooltip';
 import { convertNumber } from '../../../functions/convertNumber';
 
+
 function List({ coin }) {
+    console.log(coin);
     return (
         <tr>
             <Tooltip title="Logo" placement='bottom-start'>

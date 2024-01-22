@@ -4,6 +4,7 @@ import Header from "../components/Common/Header";
 import axios from "axios";
 import Search from "../components/Dashboard/Search";
 import PaginationComponent from "../components/Dashboard/PaginationComponent";
+import Loader from "../components/Common/Loader";
 
 function DashboardPage() {
 
@@ -48,6 +49,15 @@ function DashboardPage() {
         }
     }
 
+    if (isLoading) {
+        return (
+            <div>
+                <Header />
+                <Loader />
+            </div>
+        )
+    }
+
     return (
         <div>
             <Header />
@@ -65,7 +75,6 @@ function DashboardPage() {
             {
                 (search && filterSearch.length == 0) && <h1 className="no-item">No Item Found.</h1>
             }
-
         </div>
     )
 }
