@@ -52,4 +52,10 @@ body
   margin-top: 20px;
 }
 
+.no-item
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
