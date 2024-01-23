@@ -5,12 +5,16 @@ import coinObject from '../functions/coinObject';
 import List from '../components/Dashboard/List';
 import Header from '../components/Common/Header';
 import Loader from '../components/Common/Loader';
+import CoinInfo from '../components/Coin/CoinInfo';
+import getCoinInfo from '../functions/getCoinInfo';
+import getCoinPrice from '../functions/getCoinPrices';
 
 function CoinPage() {
   const { id } = useParams();
 
   const [coinData, setCoinData] = useState(null);
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
+  const [days, setDays] = useState(7);
 
   useEffect(() => {
     fetchData();
@@ -18,15 +22,15 @@ function CoinPage() {
 
   async function fetchData() {
     setIsLoading(true);
-    try {
-      const response = await axios.get(`https://api.coingecko.com/api/v3/coins/${id}`);
-      coinObject(setCoinData, response.data);
-      setIsLoading(false);
+    const data = await getCoinInfo(id);
+    if(data)
+    {
+      coinObject(setCoinData, data);
+      const prices = await getCoinPrice(id, days);
+      console.log(prices.length);
     }
-    catch (err) {
-      alert(err.message);
-      setIsLoading(false);
-    }
+    
+    setIsLoading(false);
   }
 
   if (isLoading) {
@@ -41,6 +45,7 @@ function CoinPage() {
   return (
     <div>
       <Header />
+
       <table>
         <thead className='id-info'>
           {
@@ -50,6 +55,9 @@ function CoinPage() {
 
       </table>
 
+      {
+        coinData !== null && <CoinInfo heading={coinData.name} desc={coinData.desc} />
+      }
 
     </div>
   )

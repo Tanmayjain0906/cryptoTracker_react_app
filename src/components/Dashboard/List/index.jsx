@@ -4,12 +4,12 @@ import TrendingDownOutlinedIcon from '@mui/icons-material/TrendingDownOutlined';
 import "./style.css"
 import Tooltip from '@mui/material/Tooltip';
 import { convertNumber } from '../../../functions/convertNumber';
-
+import { useNavigate } from 'react-router-dom';
 
 function List({ coin }) {
-    console.log(coin);
+    const navigate = useNavigate();
     return (
-        <tr>
+        <tr onClick={() => navigate(`/coin/${coin.id}`)}>
             <Tooltip title="Logo" placement='bottom-start'>
                 <td className='list-coin-logo'>
                     <img src={coin.image} />

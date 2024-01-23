@@ -2,10 +2,12 @@ import React from 'react'
 import "./style.css"
 import TrendingUpOutlinedIcon from '@mui/icons-material/TrendingUpOutlined';
 import TrendingDownOutlinedIcon from '@mui/icons-material/TrendingDownOutlined';
+import { useNavigate } from 'react-router-dom';
 
 function Grid({ coin }) {
+    const navigate = useNavigate();
     return (
-        <div className={`card ${coin.market_cap_change_percentage_24h > 0 ? "hover-green" : "hover-red"}`}>
+        <div className={`card ${coin.market_cap_change_percentage_24h > 0 ? "hover-green" : "hover-red"}`} onClick={() => navigate(`/coin/${coin.id}`)}>
             <div className='logo-div'>
                 <img src={coin.image} />
                 <div className='coin-info'>
